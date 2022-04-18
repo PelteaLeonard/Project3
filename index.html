@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3</title>
+    <link rel="stylesheet" href="static/styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+</head>
+<body>
+    <section id="header">
+        <div id="mobile">
+            <i id="bar" class="fa-solid fa-bars"></i>
+        </div>
+        <h1>sneakers</h1>
+        <ul id="navbar">
+            <a href="#" id="close"><i class="fa fa-times"></i></a>
+            <li><a href="#">Collection</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="index.html">Women</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="shopping">
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        </div>
+        <div class="shopping-cart">
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <h1>Cart</h1>
+                <img src="static/images/image-product-1.jpg" alt="product1">
+                <div class="content">
+                    <h2>Fall Limited Edition Sneakers</h2>
+                    <span class="price">$125.00</span>
+                    <span class="quantity"> x1</span>
+                    <span class="total">0</span>
+                </div>
+                <a href="#" class="btn">Checkout</a>
+            </div>            
+        </div>
+        <ul id="nav">
+            <a href="#"><img src="static/images/image-avatar.png" class="avatar"></a>
+        </ul>
+    </section>
+
+    <section id="prodetails">
+        <div class="single-pro-image">
+            <img src="static/images/image-product-1.jpg"  onclick="openModal();currentSlide(1)" width="100%" id="MainImg" alt="Product 1">
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="static/images/image-product-1.jpg" width="100%" class="small-img" alt="Product 1">
+                </div>
+                <div class="small-img-col">
+                    <img src="static/images/image-product-2.jpg" width="100%" class="small-img" alt="Product 2">
+                </div>
+                <div class="small-img-col">
+                    <img src="static/images/image-product-3.jpg" width="100%" class="small-img" alt="Product 3">
+                </div>
+                <div class="small-img-col">
+                    <img src="static/images/image-product-4.jpg" width="100%" class="small-img" alt="Product 4">
+                </div>
+            </div>
+        </div>
+        <div class="single-pro-details">
+            <h4>SNEAKER COMPANY</h4>
+            <h2>Fall Limited Edition Sneakers</h2>
+            <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
+            <h3>$125.00 <span>50%</span></h3>
+            <p1><del>$250</del></p1>
+            <buttons><i class="fa-solid fa-minus"></i><input type value="0"><i class="fa-solid fa-plus"></i></buttons>
+            <button><a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>Add to cart</button>
+        </div>
+    </section>
+
+    <section id="lightbox">
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+  
+            <div class="mySlides">
+                <img src="static/images/image-product-1.jpg" style="width:100%" opacity="100%">
+            </div>
+      
+            <div class="mySlides">
+                <img src="static/images/image-product-2.jpg" style="width:100%" opacity="100%">
+            </div>
+      
+            <div class="mySlides">
+                <img src="static/images/image-product-3.jpg" style="width:100%" opacity="100%">
+            </div>
+          
+            <div class="mySlides">
+                <img src="static/images/image-product-4.jpg" style="width:100%" opacity="100%">
+            </div>
+      
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            
+            <div class="column">
+                <img class="demo cursor" src="static/images/image-product-1-thumbnail.jpg" style="width:100%" onclick="currentSlide(1)" alt="product1">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="static/images/image-product-2-thumbnail.jpg" style="width:100%" onclick="currentSlide(2)" alt="product2">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="static/images/image-product-3-thumbnail.jpg" style="width:100%" onclick="currentSlide(3)" alt="product3">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="static/images/image-product-4-thumbnail.jpg" style="width:100%" onclick="currentSlide(4)" alt="product4">
+            </div>
+        </div>
+    </section>
+
+    <script src="https://kit.fontawesome.com/4f73f23e6f.js" crossorigin="anonymous"></script>
+    <script src="static/js/script.js"></script>
+</body>
+</html>
