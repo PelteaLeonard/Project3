@@ -59,7 +59,7 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: -2%;
+    margin-left: -25%;
 }
 
 #navbar li{
@@ -83,7 +83,7 @@ h1{
 
 #navbar li a:hover::after{
     content:"";
-    width: 50%;
+    width: calc(100% - 40px);
     height: 3px;
     background:hsl(26, 100%, 55%);
     position: absolute;
@@ -105,7 +105,7 @@ h1{
     background: none;
     color: grey;
     font-size: 20px;
-    margin-left: 35%;
+    margin-left: 1600%;
     text-align: center;
     cursor: pointer;
 }
@@ -118,7 +118,7 @@ h1{
 .shopping-cart{
     position: absolute;
     top: -100%; 
-    right: 150px;
+    right: 50px;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px black;
@@ -130,7 +130,7 @@ h1{
 
 .shopping-cart.active{
     top: 10%;
-    transition: 0.3 ease;
+    transition:all 0.3s ease;
 }
 
 .shopping-cart .box{
@@ -214,7 +214,6 @@ h1{
 
 #prodetails .single-pro-image{
     width: 30%;
-    margin: 30px;
 }
 .small-img-group {
     display: flex;
@@ -223,8 +222,7 @@ h1{
 
 .small-img-col {
     flex-basis: 23%;
-    padding-top: 20px;
-    padding: 10px;
+    padding: 20px 10px 10px 10px;
 }
 
 #prodetails #MainImg{
@@ -238,14 +236,56 @@ h1{
 #prodetails .small-img:hover{
     cursor: pointer;
     filter:opacity(40%);
-    transition: 0.3s ease;
+    transition:all 0.3s ease;
 }
 
 #prodetails .small-img:hover.active{
     filter:opacity(40%);
     transition: 0.3s ease;
-    margin: 2px solid hsl(26, 100%, 55%);
+    border: 2px solid hsl(26, 100%, 55%);
     border-radius: 10px;
+}
+
+#prodetails .small-img-group .prev{
+    position: absolute;
+    padding: 6px 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    top: 55%;
+    left: 5%;
+    margin-top: -50px;
+    color: grey;
+    background-color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition:all 0.3s ease;
+    display: none;
+}
+
+#prodetails .small-img-group .next {
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    padding: 6px 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    top: 55%;
+    left: 20%;
+    margin-top: -50px;
+    color: grey;
+    background-color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition:all 0.3s ease;
+    display: none;
+}
+
+#prodetails .small-img-group .prev:hover,
+#prodetails .small-img-group .next:hover {
+      color:hsl(26, 100%, 55%);
+      cursor: pointer;
 }
 
 #prodetails .single-pro-details{
@@ -297,83 +337,86 @@ h1{
     margin: 0 0 0 2px;
 }
 
-#prodetails .single-pro-details button {
+
+.single-pro-details .quantity button{
+    width: 45px;
+    height: 45px;
     color:hsl(0, 0%, 100%);
-    background-color: hsl(26, 100%, 55%);
-    height: 40px;
-    width: 250px;
-    text-align: center;
-    justify-content: center;
     border-radius: 10px;
+    background: none;
     border: none;
-    padding-left: -10px;
-    margin: 50px 0 0 30px;
 }
 
-#prodetails .single-pro-details button .cart{
-    position: flex;
-    margin-left: 5%;
-    color: hsl(0, 0%, 100%);
-    padding-right: 15px;
-}
-
-#prodetails .single-pro-details button:hover{
-    cursor: pointer;
-    background: hsl(25, 95%, 77%);
-}
-
-#prodetails .single-pro-details input{
-    width: 40px;
-    height: 40px;
+.single-pro-details .quantity input{
+    position:static;
+    border: none;
     text-align: center;
-    justify-content: center;
-    background: hsl(223, 64%, 98%);
-    font-size: 16px;
-    font-weight: 600;
-    padding-left:0px;
-    border: none;
-}
-
-#prodetails .single-pro-details .fa-plus{
-    color:hsl(26, 100%, 55%);
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
+    font-size: 15px;
+    color: black;
     font-weight: bold;
-    background: hsl(223, 64%, 98%);
-    text-align: center;
-    justify-content: center;
+    background:hsl(223, 64%, 98%);
     border-radius: 10px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    padding: 12px;
+    width: 140px;
+    height: 35px;
+    padding: 0;
+    margin-top: 8.5%;
 }
 
-#prodetails .single-pro-details .fa-plus:hover{
-    cursor: pointer;
-    color: hsl(26, 93%, 63%);
-}
-
-#prodetails .single-pro-details .fa-minus{
-    color:hsl(26, 100%, 55%);
+.single-pro-details .fa-minus{
+    position: absolute;
+    margin-top: -465%;
+    margin-left: -80%;
+    color: hsl(26, 100%, 55%);
     width: 40px;
-    height: 40px;
-    font-size: 16px;
-    font-weight: 800;
-    background: hsl(223, 64%, 98%);
-    text-align: center;
-    justify-content: center;
-    border-radius: 10px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    padding: 12px;
+    height: 35px;
+    transition:all 0.3s ease;
 }
 
-#prodetails .single-pro-details .fa-minus:hover{
+.single-pro-details .fa-minus:hover{
     cursor: pointer;
-    color: hsl(26, 93%, 63%);
+    color:hsl(26, 95%, 67%);
 }
-  
+
+.single-pro-details .fa-plus{
+    position: absolute;
+    margin-top: -465%;
+    margin-left: -190%;
+    color: hsl(26, 100%, 55%);
+    width: 40px;
+    height: 35px;
+    transition:all 0.3s ease;
+
+}
+
+.single-pro-details .fa-plus:hover{
+    cursor: pointer;
+    color:hsl(26, 95%, 67%);
+}
+
+.shopping button{
+    display: flex;
+    width: 200px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    background:hsl(26, 100%, 55%);
+    color:hsl(0, 0%, 100%);
+    margin: -17.4% 0 0 45%;
+    padding: 10px 0 0 59px;
+}
+
+.shopping button:hover{
+    cursor: pointer;
+    background: hsl(26, 95%, 67%);
+}
+
+.shopping button .cart{
+    display: flex;
+    margin-left: 7%;
+    color: hsl(0, 0%, 100%);
+    padding: 0px 10px 0 0;
+}
+
 .column {
     float: left;
     width: 25%;
@@ -386,15 +429,13 @@ h1{
 }
 
 .modal {
-    display: none;
     position: fixed;
     padding-top: 70px;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: hsl(0, 0%, 0%);
-    opacity: 75%;
+    background: hsl(0, 0%, 0%, 0.75);
 }
   
 
@@ -411,7 +452,7 @@ h1{
     right: 35%;
     font-size: 35px;
     font-weight: bold;
-    transition: 0.3 ease;
+    transition:all 0.3s ease;
 }
   
 .close:hover{
@@ -421,9 +462,9 @@ h1{
 }
 
   
-.prev{
+.modal-content .prev{
     position: absolute;
-    padding: 10px 15px;
+    padding: 6px 15px;
     width: 40px;
     height: 40px;
     border-radius: 30px;
@@ -434,14 +475,14 @@ h1{
     background-color: white;
     font-weight: bold;
     font-size: 20px;
-    transition: 0.3s ease;
+    transition:all 0.3s ease;
 }
 
-.next {
+.modal-content .next {
     position: absolute;
     text-align: center;
     justify-content: center;
-    padding: 10px 15px;
+    padding: 6px 15px;
     width: 40px;
     height: 40px;
     border-radius: 30px;
@@ -452,11 +493,11 @@ h1{
     background-color: white;
     font-weight: bold;
     font-size: 20px;
-    transition: 0.3s ease;
+    transition:all 0.3s ease;
 }
   
-.prev:hover,
-.next:hover {
+.modal-content .prev:hover,
+.modal-content .next:hover {
       color:hsl(26, 100%, 55%);
       cursor: pointer;
 }
@@ -496,12 +537,19 @@ img {
     #mobile i{
         color: grey;
         font-size: 20px;
-        top: 30px;
-        left:10px;
+        top: 32px;
+        left: 10px;
         position: absolute;
     }
+    h1{
+        font-size: 25px;
+        margin-left: -20%;
+    }
     .avatar{
-        margin-left: 46%;
+        margin-left: 86%;
+    }
+    .shopping div{
+        margin-left: -38%;
     }
     #close{
         display: flex;
@@ -519,65 +567,77 @@ img {
     #prodetails{
         display: flex;
         flex-direction: column;
+        padding: 0;
+        margin-top: -10px;
     }
     #prodetails .single-pro-image{
         width: 100%;
-        margin: -60px -40px;
+    }
+    #prodetails .small-img-group .prev{
+        display: flex;
+        top: 45%;
+        left: 2%;
+    }
+    #prodetails .small-img-group .next{
+        display: flex;
+        top: 45%;
+        left: 88%;
     }
     #prodetails .single-pro-details{
-        margin: 0;
-        width: 100%;
-    }
-    #prodetails .single-pro-details button{
-        margin: 0;
         width: 100%;
     }
     #prodetails .single-pro-details h4{
-        margin: 10px 0 0 -80px;
+        margin: -30px 0 0 -50px;
     }
     #prodetails .single-pro-details h2{
         display: flex;
         width: 320px;
         font-size: 25px;
-        margin: -15px 0 0 -80px;
+        margin: -15px 0 0 -50px;
     }
     #prodetails .single-pro-details p{
-        margin: -15px -80px;
+        margin: -15px 0 0 -50px;
     }
     #prodetails .single-pro-details h3{
-        margin: -15px -80px;
+        margin: -15px -50px;
     }
     #prodetails .single-pro-details del{
-        display: absolute;
-        margin: -10px 0 0 140px;
-    }
-    #prodetails .single-pro-details button{
-        width: 280px;
-        margin: 35px 0 0 -80px;
-    }
-
-    #prodetails .single-pro-details .fa-minus{
-        font-size: 16px;
-        width: 120px;
-        margin: 25px 0 -10px -80px;
-    }
-    #prodetails .single-pro-details .fa-plus{
-        display: absolute;
-        font-size: 16px;
-        width: 120px;
-        margin: -75px 0 0 80px;
-    }
-    #prodetails .single-pro-details input{
-        margin: -35px 0 0 0px;
+        position: absolute;
+        margin: -10px 0 0 220px;
     }
     #prodetails #MainImg{
-        border-radius: 0px;
+        border-radius: 0;
         width: 100%;
         max-width:  600px;
     }
-    
     #prodetails .small-img{
        display: none;
     }
+    .shopping button{
+        margin: -20px 0 0 8%;
+        width: 320px;
+        height: 45px;
+        justify-content: center;
+        text-align: center;
+    }
+    .single-pro-details .quantity input{
+        width: 320px;
+        height: 45px;
+        margin: -3px 0 0 -12%;
+        padding: 0 77px 0 77px; 
+    }
+    .single-pro-details .fa-minus{
+        margin-top: 400%;
+        margin-left: -120%;
+        font-size:20px;
+    }
+    .single-pro-details .fa-plus{
+        font-size: 20px;
+        margin-top: 400%;
+        margin-left: 400%;
+    }
+    .modal{
+        left: 100%;
+        right:  100%;
+    }
 }
-
