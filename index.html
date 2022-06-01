@@ -23,15 +23,29 @@
             <li><a href="#">Contact</a></li>
         </ul>
         <div class="shopping">
-            <div class="fas fa-shopping-cart" id="cart-btn"><span></span></div></div>
+            <div class="sum-products">
+                <i class="fas fa-shopping-cart" id="cart-btn"></i>
+                <h6 id="sum-products"></h6>
+            </div>
         </div>
         <div class="shopping-cart">
             <div class="box">
                 <h1>Cart</h1>
-                <p>Your cart is empty.</p>
-               
-            </div>            
+            </div>
+            <div class="cart-content">
+                <div class="cart-item">
+                    <img src="static/images/image-product-1-thumbnail.jpg" alt="Product 1">
+                    <div class="cart-product-title">Fall Limited Edition Sneakers</div>
+                    <div class="cart-price">$125.00</div>
+                    <h6>X</h6>
+                    <input type="number" value="1" class="cart-quantity">
+                    <div class="total-price">$125.00</div>
+                    <i class="fa-solid fa-trash-can remove-item"></i>
+                    <button class="btn checkout">Checkout</button>
+                </div>
+            </div>
         </div>
+        <div class="cart-items">0</div>
         <div id="nav">
                 <a href="#"><img src="static/images/image-avatar.png" class="avatar"></a>
         </div>
@@ -40,77 +54,75 @@
     <main>
         <section id="prodetails">
             <div class="single-pro-image">
-                <img src="static/images/image-product-1.jpg"  onclick="openModal();currentSlide(1)" width="100%" id="MainImg" alt="Product 1">
+                <div id="mainImage">
+                    <img src="static/images/image-product-1.jpg" onclick="openModal();currentSlide(1)" width="100%" id="MainImg" alt="Product 1" class="product-img">
+                </div>
                 <div class="small-img-group">
-                    <a class="prev" onclick="plusSLides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                    <div class="small-img-col">
-                        <img src="static/images/image-product-1.jpg" width="100%" class="small-img" alt="Product 1">
+                    <a class="prev" onclick="plusSlides(-1, true)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1, true)">&#10095;</a>
+                    <div class="small-img-col main-slides">
+                        <img src="static/images/image-product-1.jpg" width="100%"  class="active small-img"   alt="Product 1">
                     </div>
-                    <div class="small-img-col">
+                    <div class="small-img-col main-slides">
                         <img src="static/images/image-product-2.jpg" width="100%" class="small-img" alt="Product 2">
                     </div>
-                    <div class="small-img-col">
+                    <div class="small-img-col main-slides">
                         <img src="static/images/image-product-3.jpg" width="100%" class="small-img" alt="Product 3">
                     </div>
-                    <div class="small-img-col">
+                    <div class="small-img-col main-slides">
                         <img src="static/images/image-product-4.jpg" width="100%" class="small-img" alt="Product 4">
                     </div>
                 </div>
             </div>
             <div class="single-pro-details">
                 <h4>SNEAKER COMPANY</h4>
-                <h2>Fall Limited Edition Sneakers</h2>
+                <h2 class="product-title">Fall Limited Edition Sneakers</h2>
                 <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
-                <h3>$125.00 <span>50%</span></h3>
+                <h3 class="price">$125.00 <span>50%</span></h3>
                 <p><del>$250</del></p>
                 <div class="quantity">
                     <button class="btn minus-btn disabled" type="button"><i class="fa-solid fa-minus"></i></button>
                     <input type="text" id="quantity" value="0">
-                    <button class="btn plus-btn" type="button"><i class="fa-solid fa-plus"></i></button>
+                    <button class="btn plus-btn" data-id="1"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <div class="shopping">
+                    <i class="fa-solid fa-cart-shopping add-cart">Add to cart</i> 
                 </div>
             </div>
         </section>
     
-        <div class="shopping">
-            <button class="add-cart cart1"><i class="fa-solid fa-cart-shopping cart"></i></a>Add to cart</button>
-        </div>
+        
     
         <section id="lightbox">
             <div id="myModal" class="modal">
                 <span class="close cursor" onclick="closeModal()">&times;</span>
                 <div class="modal-content">
       
-                    <div class="mySlides">
+                    <div id="lightboxMainImage">
                         <img src="static/images/image-product-1.jpg" style="width:100%" alt="product1">
                     </div>
-          
-                    <div class="mySlides">
-                        <img src="static/images/image-product-2.jpg" style="width:100%" alt="product2">
-                    </div>
-          
-                    <div class="mySlides">
-                        <img src="static/images/image-product-3.jpg" style="width:100%" alt="product3">
-                    </div>
-              
-                    <div class="mySlides">
-                        <img src="static/images/image-product-4.jpg" style="width:100%" alt="product4">
-                    </div>
-          
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 
                     <div class="column">
-                        <img class="demo cursor" src="static/images/image-product-1-thumbnail.jpg" style="width:100%" onclick="currentSlide(1)" alt="product1">
+                        <div class=" active image-container">
+                            <img class="demo cursor" src="static/images/image-product-1-thumbnail.jpg" style="width:100%" onclick="currentSlide(1)" alt="product1">
+                        </div>
                     </div>
                     <div class="column">
-                        <img class="demo cursor" src="static/images/image-product-2-thumbnail.jpg" style="width:100%" onclick="currentSlide(2)" alt="product2">
+                        <div class="image-container">
+                            <img class="demo cursor" src="static/images/image-product-2-thumbnail.jpg" style="width:100%" onclick="currentSlide(2)" alt="product2">
+                        </div>
                     </div>
                     <div class="column">
-                        <img class="demo cursor" src="static/images/image-product-3-thumbnail.jpg" style="width:100%" onclick="currentSlide(3)" alt="product3">
+                        <div class="image-container">
+                            <img class="demo cursor" src="static/images/image-product-3-thumbnail.jpg" style="width:100%" onclick="currentSlide(3)" alt="product3">
+                        </div>
                     </div>
                     <div class="column">
-                        <img class="demo cursor" src="static/images/image-product-4-thumbnail.jpg" style="width:100%" onclick="currentSlide(4)" alt="product4">
+                        <div class="image-container">
+                            <img class="demo cursor" src="static/images/image-product-4-thumbnail.jpg" style="width:100%" onclick="currentSlide(4)" alt="product4">
+                        </div>
                     </div>
                 </div>
             </div>

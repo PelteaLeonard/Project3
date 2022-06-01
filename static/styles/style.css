@@ -115,16 +115,15 @@ h1{
     color: rgb(0, 0, 0);
 }
 
-.shopping div span{
-    position: absolute;
-    color:hsl(30, 100%, 99%);
+.cart-items{
     font-size: 10px;
-    padding:0 0 6px 0;
-    margin: -1.8% 0 0 0;
-    width: 20px;
-    height: 15px;
-    background-color: hsl(26, 100%, 55%);
-    border-radius: 5px;
+    position: absolute;
+    top: 2.8%;
+    right: 12.5%;
+    background: hsl(26, 100%, 55%);
+    padding: 0 5px;
+    border-radius: 30%;
+    color: hsl(0, 0%, 100%);
 }
 
 .shopping-cart{
@@ -134,15 +133,18 @@ h1{
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px black;
-    width: 300px;
-    height: 200px;
+    width: 350px;
+    height: 250px;
     background:hsl(0, 0%, 100%);
-
+    -ms-overflow-style: none;
+    overflow: hidden;
+    z-index: 15;
+    transition: all 0.5s ease;
 }
 
 .shopping-cart.active{
     top: 10%;
-    transition:all 0.3s ease;
+    transition:all 0.5s ease;
 }
 
 .shopping-cart .box{
@@ -157,11 +159,12 @@ h1{
 .shopping-cart .box h1{
     font-size: 15px;
     position: absolute;
-    width: 300px;
+    width: 370px;
     top: -10%;
     right: -32%;
     padding: 10px 0 10px 20px;
     border-bottom: 1px solid grey;
+    outline: none;
 }
 
 .shopping-cart .box .content h2{
@@ -177,6 +180,97 @@ h1{
     justify-content: center;
     text-align: center;
     margin: 30% 0 0 25%;
+}
+
+.shopping-cart img {
+    width: 60px;
+    position: absolute;
+    top: 33%;
+    left: 5%;
+}
+
+.shopping-cart .cart-product-title{
+    font-size: 15px;
+    position: absolute;
+    top: 33%;
+    left: 28%;
+}
+
+.shopping-cart .cart-price{
+    font-size: 15px;
+    position: absolute;
+    top: 45%;
+    left: 28%;
+    color: grey
+}
+
+.shopping-cart .cart-quantity{
+    border: 1px solid grey;
+    width: 2.4rem;
+    text-align: center;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+}
+
+.shopping-cart .total-price{
+    text-align: center;
+    position: absolute;
+    top: 45%;
+    left: 65%;
+    font-weight: bold;
+}
+
+.shopping-cart h6{
+    font-size: 12px;
+    position: absolute;
+    top: 46%;
+    left: 45%;
+    color: grey;
+    font-weight: bold;
+}
+
+.shopping-cart p{
+    font-size: 15px;
+    position: absolute;
+    top: 45%;
+    left: 48%;
+    color: grey;
+    font-weight: bold;
+
+}
+
+.shopping-cart h3{
+    font-size: 15px;
+    position: absolute;
+    top:45%;
+    left: 55%;
+    color:rgb(0, 0, 0);
+    font-weight: 900;
+}
+
+.shopping-cart .remove-item{
+    font-size: 15px;
+    position: absolute;
+    top: 40%;
+    left: 93%;
+    color: grey;
+
+}
+
+.shopping-cart .remove-item:hover{
+    color: black;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.shopping-cart button{
+    width: 310px;
+    height: 45px;
+    top: 60%;
+    border: none;
+    left: 0;
+    cursor: pointer;
 }
 
 .avatar{
@@ -222,11 +316,11 @@ h1{
     transition:all 0.3s ease;
 }
 
-#prodetails .small-img:hover.active{
-    filter:opacity(40%);
-    transition: 0.3s ease;
-    border: 2px solid hsl(26, 100%, 55%);
+#prodetails .small-img.active{
+    transition:all 0.3s ease;
+    border: 4px solid hsl(26, 100%, 55%);
     border-radius: 10px;
+    filter:opacity(40%);
 }
 
 #prodetails .small-img-group .prev{
@@ -347,7 +441,7 @@ h1{
 
 .single-pro-details .fa-minus{
     position: absolute;
-    margin-top: -465%;
+    margin-top: -415%;
     margin-left: -80%;
     color: hsl(26, 100%, 55%);
     width: 40px;
@@ -362,7 +456,7 @@ h1{
 
 .single-pro-details .fa-plus{
     position: absolute;
-    margin-top: -465%;
+    margin-top: -415%;
     margin-left: -190%;
     color: hsl(26, 100%, 55%);
     width: 40px;
@@ -376,7 +470,7 @@ h1{
     color:hsl(26, 95%, 67%);
 }
 
-.shopping button{
+.shopping .add-cart{
     display: flex;
     width: 200px;
     height: 35px;
@@ -384,16 +478,18 @@ h1{
     border: none;
     background:hsl(26, 100%, 55%);
     color:hsl(0, 0%, 100%);
-    margin: -17.4% 0 0 45%;
+    margin: -3.4% 0 0 20%;
     padding: 10px 0 0 59px;
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 
-.shopping button:hover{
+.shopping .add-cart:hover{
     cursor: pointer;
     background: hsl(26, 95%, 67%);
 }
 
-.shopping button .cart{
+.shopping .add-cart .fa-cart-shopping{
     display: flex;
     margin-left: 3%;
     color: hsl(0, 0%, 100%);
@@ -408,7 +504,28 @@ h1{
 
 .column:hover{
     cursor: pointer;
+}
+
+.image-container{
+    position: absolute;
+    background: white;
+    border-radius: 10px;
+    width: 20%;
+    height: 19.8%;
+}
+
+.image-container img:hover{
     filter: opacity(40%);
+}
+
+.image-container.active{
+    position: absolute;
+    background: white;
+    border-radius: 10px;
+    border: 4px solid hsl(26, 100%, 55%);
+    filter:opacity(40%);
+    width: 20%;
+    height: 19.8%;
 }
 
 .modal {
@@ -444,6 +561,9 @@ h1{
     cursor: pointer;
 }
 
+#myModal{
+    display: none;
+}
   
 .modal-content .prev{
     position: absolute;
@@ -496,7 +616,7 @@ img {
     font-family: 'Times New Roman', Times, serif;
     width: 100%;
     height:30px;
-    margin: 16% 0 0 0;
+    margin: -2% 0 0 0;
 }
 
 @media(max-width: 600px){
@@ -543,6 +663,9 @@ img {
     }
     .avatar{
         margin-left: 86%;
+    }
+    .shopping-cart{
+        left: 13px;
     }
     .shopping div{
         margin-left: -38%;
@@ -611,15 +734,15 @@ img {
     #prodetails .small-img{
        display: none;
     }
-    .shopping button{
-        margin: -20px 0 0 8%;
+    .shopping .add-cart{
+        margin: 20px 0 0 -12%;
         width: 320px;
         height: 45px;
         justify-content: center;
         text-align: center;
     }
-    .shopping button .cart{
-        margin: 0 0 0 -20%;
+    .shopping .add-cart .fa-cart-shopping{
+        margin: 0 0 0 20%;
     }
     .single-pro-details .quantity input{
         width: 320px;
