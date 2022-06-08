@@ -486,7 +486,8 @@ h1{
     height: 35px;
     border-radius: 10px;
     border: none;
-    background:hsl(26, 100%, 55%);
+    background:
+    hsl(26, 100%, 55%);
     color: hsl(0, 0%, 100%);
     margin: -3.4% 0 0 20%;
     padding: 10px 0 0 59px;

@@ -8,7 +8,7 @@ const products = [
 
 const productPrice = products[0].price.toFixed(2);
 const bar = document.getElementById('bar');
-const navs = document.getElementById('navbar');
+const navbar = document.getElementById('navbar');
 const close = document.getElementById('close');
 const productImages = {
     1: 'static/images/image-product-1.jpg',
@@ -19,32 +19,32 @@ const productImages = {
 
 if(bar){
     bar.addEventListener('click', () =>{
-        navs.classList.add('active');
+        navbar.classList.add('active');
     });
 };
 
 if(close){
     close.addEventListener('click', () =>{
-        navs.classList.remove('active');
+        navbar.classList.remove('active');
     });
 };
 
 const cartShopItem = document.createElement("div")
 const cartItems = document.getElementsByClassName("cart-content")[0]
 const MainImg = document.getElementById("MainImg");
-const smallimg = document.getElementsByClassName("small-img");
+const smallImg = document.getElementsByClassName("small-img");
 
-smallimg[0].onclick = function(){
-    MainImg.src = smallimg[0].src;
+smallImg[0].onclick = function(){
+    MainImg.src = smallImg[0].src;
 };
-smallimg[1].onclick = function(){
-    MainImg.src = smallimg[1].src;
+smallImg[1].onclick = function(){
+    MainImg.src = smallImg[1].src;
 };
-smallimg[2].onclick = function(){
-    MainImg.src = smallimg[2].src;
+smallImg[2].onclick = function(){
+    MainImg.src = smallImg[2].src;
 };
-smallimg[3].onclick = function(){
-    MainImg.src = smallimg[3].src;
+smallImg[3].onclick = function(){
+    MainImg.src = smallImg[3].src;
 };
 
 const openModal = () => {
@@ -93,7 +93,7 @@ const productImageSlide = document.querySelector(".image-slider");
 
 let activeImageSlide = 0;
 
-productImage.forEach((item, i) => {
+productImage.forEach((item, _i) => {
     item.addEventListener('click', () => {
         productImage[activeImageSlide].classList.remove('active');
         item.classList.add('active');
@@ -164,7 +164,7 @@ function ready(){
         let input = quantityInputs[i];
         input.addEventListener("change", quantityChanged);
     }
-    const addCart = document.getElementsByClassName('add-cart');
+    const addCart = document.getElementsByClassName('shopping');
     for (let i = 0; i < addCart.length; i++){
         let button = addCart[i];
         button.addEventListener("click", addCartClicked);
@@ -178,7 +178,6 @@ function checkoutButtonClicked(){
     while(cartContent.hasChildNodes()){
         cartContent.removeChild(cartContent.firstChild);
     }
-    updatetotal();
 }
 
 
@@ -186,7 +185,6 @@ function removeCartItem(event) {
     alert('Are you sure that you want to delete this Item?')
     let buttonClicked = event.target;
     buttonClicked.parentElement.remove();
-    updatetotal();
 }
 
 function quantityChanged(event){
@@ -201,8 +199,8 @@ function addCartClicked(event) {
     const title = products[0].title;
     const price = products[0].price;
     const productIMg = products[0].productIMg;
+    console.log(title, price, productIMg)
     addProductToCart(title, price, productIMg);
-    updatetotal();
 }
 
 function addProductToCart(title, price, productIMg){
