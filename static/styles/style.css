@@ -408,6 +408,11 @@ h1{
     margin: 0 0 0 2px;
 }
 
+.position{
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
 
 .single-pro-details .quantity button{
     width: 45px;
@@ -430,12 +435,12 @@ h1{
     width: 140px;
     height: 35px;
     padding: 0;
-    /* margin-top: 8.5%; */
+    margin-right: 30px;
 }
 
 .single-pro-details .quantity div{
     position: relative;
-    margin-top: 8.5%;
+    /* margin-top: 8.5%; */
 }
 
 .single-pro-details .fa-minus{
@@ -489,7 +494,7 @@ h1{
     background:
     hsl(26, 100%, 55%);
     color: hsl(0, 0%, 100%);
-    margin: -3.4% 0 0 20%;
+    /* margin: -3.4% 0 0 20%; */
     padding: 10px 0 0 59px;
     font-size: 12px;
     letter-spacing: 1px;
@@ -497,7 +502,7 @@ h1{
 
 .shopping button:hover{
     cursor: pointer;
-    color:hsl(26, 95%, 67%);
+    background:hsl(26, 95%, 67%);
 }
 
 .shopping .add-cart {
@@ -529,14 +534,14 @@ h1{
     filter: opacity(40%);
 }
 
-.image-container.active{
+.demo.cursor.active{
     position: absolute;
     background: white;
     border-radius: 10px;
     border: 4px solid hsl(26, 100%, 55%);
     filter:opacity(40%);
-    width: 20%;
-    height: 19.8%;
+    /*width: 20%;*/
+   /* height: 19.8%;*/
 }
 
 .modal {
@@ -787,6 +792,11 @@ img {
     .single-pro-details .plus-btn{
         top: -180px;
         left: 60px;
+    }
+    .position{
+        flex-direction: column;
+        margin-left: 80px
+       
     }
     .modal{
         left: 100%;

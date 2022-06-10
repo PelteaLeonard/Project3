@@ -90,34 +90,31 @@ function showSlides (isMobile) {
 
 const productImage = document.querySelectorAll(".small-img-group img");
 const productImageSlide = document.querySelector(".image-slider");
+const productImg = document.querySelectorAll(".image-container img");
+const productImgSlide = document.querySelector("#lightboxMainImage img");
 
 let activeImageSlide = 0;
+let activeImgSlide = 0;
 
 productImage.forEach((item, _i) => {
     item.addEventListener('click', () => {
         productImage[activeImageSlide].classList.remove('active');
         item.classList.add('active');
-        productImageSlide.style.backgroundImage = `url('${item.src}')`;
-        activeImageSlide = 0;
-        productImage[activeImageSlide].classList.remove('active');
+        activeImageSlide = _i;
     })
 })
-
-const productImg = document.querySelectorAll(".image-container img");
-const productImgSlide = document.querySelector(".image-slide");
-
-let activeImgSlide = 0;
 
 productImg.forEach((item, i) => {
     item.addEventListener('click', () => {
         productImg[activeImgSlide].classList.remove('active');
         item.classList.add('active');
-        productImgSlide.style.backgroundImage = `url('${item.src}')`;
+        productImage[activeImageSlide].classList.remove('active');
+        productImage[i].classList.add('active');
+        productImgSlide.src = productImages[i + 1];
         activeImgSlide = i;
+        activeImageSlide = i;
     })
 })
-
-
 
 const shoppingCart = document.querySelector('.shopping-cart');
 
@@ -199,7 +196,6 @@ function addCartClicked(event) {
     const title = products[0].title;
     const price = products[0].price;
     const productIMg = products[0].productIMg;
-    console.log(title, price, productIMg)
     addProductToCart(title, price, productIMg);
 }
 
