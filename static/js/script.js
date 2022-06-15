@@ -1,13 +1,6 @@
-const products = [
-    {
-        productIMg: 'static/images/image-product-1-thumbnail.jpg',
-        title: 'Fall Limited Edition Sneakers',
-        price: 125
-    },
-];
 
-const productPrice = products[0].price.toFixed(2);
 const bar = document.getElementById('bar');
+const overlay = document.getElementById('overlay');
 const navbar = document.getElementById('navbar');
 const close = document.getElementById('close');
 const productImages = {
@@ -20,12 +13,14 @@ const productImages = {
 if(bar){
     bar.addEventListener('click', () =>{
         navbar.classList.add('active');
+        overlay.classList.add('active');
     });
 };
 
 if(close){
     close.addEventListener('click', () =>{
         navbar.classList.remove('active');
+        overlay.classList.remove('active');
     });
 };
 
@@ -182,12 +177,13 @@ function removeCartItem(event) {
     alert('Are you sure that you want to delete this Item?')
     let buttonClicked = event.target;
     buttonClicked.parentElement.remove();
+    updatetotal()
 }
 
 function quantityChanged(event){
-    let input = event.target
+    let input = event.target;
     if(isNaN(input.value) || input.value <= 0){
-        input.value = 1
+        input.value = 1;
     }
     updatetotal();
 }
@@ -196,6 +192,7 @@ function addCartClicked(event) {
     const title = products[0].title;
     const price = products[0].price;
     const productIMg = products[0].productIMg;
+    console.log(title, price, productIMg)
     addProductToCart(title, price, productIMg);
 }
 
@@ -203,7 +200,7 @@ function addProductToCart(title, price, productIMg){
     cartShopItem.classList.add('cart-item')
     const cartItemsNames = cartItems.getElementsByClassName("cart-product-title")
     for(let i = 0; i < cartItemsNames; i++){
-        return(title, price, productIMg);
+        return
     }
 }
 
@@ -227,9 +224,9 @@ function updatetotal(productPrice){
     const cartItems = cartContent.getElementsByClassName('cart-item');
     let total = 0;
     for (let i = 0; i < cartItems.length; i++){
-        let cartItem = cartItems[i]
-        let priceElement = cartItem.getElementsByClassName('cart-price')[0]
-        let quantityElement = cartItem.getElementsByClassName('cart-quantity')[0]
+        let cartItem = cartItems[i];
+        let priceElement = cartItem.getElementsByClassName('price')[0];
+        let quantityElement = cartItem.getElementsByClassName('cart-quantity')[0];
         let price = parseFloat(priceElement.innerText.replace("$",""));
         let quantity = quantityElement.value;
         total = total + (productPrice * quantity);
