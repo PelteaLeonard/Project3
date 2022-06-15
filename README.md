@@ -25,7 +25,7 @@ I drew my wireframes using Balsamiq. I have done two wireframes for each page to
 
 - [active-states-bascket-empty(l-xl)](https://github.com/PelteaLeonard/Project3/blob/master/static/wireframes/active-states-bascket-empty(l-xl).png)
 - [active-states-bascket-filled(l-xl)](https://github.com/PelteaLeonard/Project3/blob/master/static/wireframes/active-states-bascket-filled(l-xl).png)
-- [active-states-lightbox(l-xl)](https://github.com/PelteaLeonard/Project3/blob/master/static/wireframes/active-states-lightbox(l-xl).png]
+- [active-states-lightbox(l-xl)](https://github.com/PelteaLeonard/Project3/blob/master/static/wireframes/active-states-lightbox(l-xl).png)
 - [desktop-design(l-xl)](https://github.com/PelteaLeonard/Project3/blob/master/static/wireframes/desktop-design(l-xl).png)
 - [desktop-design-lightbox(l-xl)](https://github.com/PelteaLeonard/Project3/blob/master/static/wireframes/desktop-design-lightbox(l-xl).png)
 - [desktop-preview(l-xl)](https://github.com/PelteaLeonard/Project3/blob/master/static/wireframes/desktop-preview(l-xl).png)
@@ -37,12 +37,19 @@ I drew my wireframes using Balsamiq. I have done two wireframes for each page to
 
 #### Existing Features
 **Collection button** **Men button** **Women button** **About button** **Contact button** - For the moment all the buttons takes you to the main page
+
 **Add to cart button** - Add the product in to the cart
+
 **Minus button** - Decrease the number of the product that you want to buy
+
 **Plus button** - Increase the number of the product that you want to buy
+
 **Cart button** - It shows if you have some products in the cart or if it's empty
+
 **Checkout button** - It shows when you have something in the cart and you want to buy the product
+
 **Delete button** - It shows when you have something in the cart and you want to delete the product
+
 **Lightbox image** - The lightbox image it will appear when you press on the big image and a bigger image will appear on your screen
 
 
