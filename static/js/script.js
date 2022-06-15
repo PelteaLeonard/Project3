@@ -200,7 +200,6 @@ function addCartClicked(event) {
     const title = products[0].title;
     const price = products[0].price;
     const productIMg = products[0].productIMg;
-    console.log(title, price, productIMg)
     addProductToCart(title, price, productIMg);
 }
 
