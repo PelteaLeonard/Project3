@@ -1,4 +1,12 @@
+const products = [
+    {
+        productIMg: 'static/images/image-product-1-thumbnail.jpg',
+        title: 'Fall Limited Edition Sneakers',
+        price: 125
+    },
+];
 
+const productPrice = products[0].price.toFixed(2);
 const bar = document.getElementById('bar');
 const overlay = document.getElementById('overlay');
 const navbar = document.getElementById('navbar');
@@ -183,7 +191,7 @@ function removeCartItem(event) {
 function quantityChanged(event){
     let input = event.target;
     if(isNaN(input.value) || input.value <= 0){
-        input.value = 1;
+        input.value = value;
     }
     updatetotal();
 }
@@ -196,11 +204,11 @@ function addCartClicked(event) {
     addProductToCart(title, price, productIMg);
 }
 
-function addProductToCart(title, price, productIMg){
+function addProductToCart(productIMg, title, price,){
     cartShopItem.classList.add('cart-item')
     const cartItemsNames = cartItems.getElementsByClassName("cart-product-title")
     for(let i = 0; i < cartItemsNames; i++){
-        return
+        return(productIMg, title, price)
     }
 }
 
