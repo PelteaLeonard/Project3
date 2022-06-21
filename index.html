@@ -23,15 +23,18 @@
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
-    
+ 
         <div class="shopping-cart">
             <div class="box">
-                <h1>Cart</h1>
-            </div>
-            <div class="cart-empty">
-                <h5>Your cart is empty.</h5>
+                <h3>Cart</h3>
             </div>
             <div class="cart-content">
+                <p class="cart-is-empty">
+                    Your cart is empty
+                </p>
+            </div>
+            <div class="checkout-button-container">
+                <button class="btn checkout">Checkout</button>
             </div>
         </div>
         <div id="nav">
@@ -39,7 +42,7 @@
             <a href="#"><img src="static/images/image-avatar.png" alt="avatar" class="avatar"></a>
         </div>
     </nav>
-
+ 
     <main>
         <section id="prodetails">
             <div class="single-pro-image">
@@ -73,7 +76,7 @@
                     <div class="quantity">
                         <div>
                             <button class="btn minus-btn disabled" type="button"><i class="fa-solid fa-minus"></i></button>
-                            <input type="text" id="quantity" value="0">
+                            <input type="text" id="quantity" value="1">
                             <button class="btn plus-btn" data-id="1"><i class="fa-solid fa-plus"></i></button>
                         </div>
                     </div>
@@ -83,20 +86,20 @@
                 </div>
             </div>
         </section>
-    
-        
-    
+ 
+ 
+ 
         <section id="lightbox">
             <div id="myModal" class="modal">
                 <span class="close cursor" onclick="closeModal()">&times;</span>
                 <div class="modal-content">
-      
+ 
                     <div id="lightboxMainImage">
                         <img src="static/images/image-product-1.jpg" style="width:100%" alt="product1">
                     </div>
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                
+ 
                     <div class="column">
                         <div class="  image-container">
                             <img class="demo cursor active" src="static/images/image-product-1-thumbnail.jpg" style="width:100%" onclick="currentSlide(1)" alt="product1">
@@ -124,7 +127,7 @@
     <footer id="footer">
         &copy;Made by Leonard Peltea.
     </footer>
-
+ 
     <script src="https://kit.fontawesome.com/4f73f23e6f.js" crossorigin="anonymous"></script>
     <script src="static/js/script.js"></script>
 </body>

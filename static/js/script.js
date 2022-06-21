@@ -119,12 +119,6 @@ productImg.forEach((item, i) => {
     })
 })
 
-const shoppingCart = document.querySelector('.shopping-cart');
-
-document.querySelector('#cart-btn').onclick = () =>{
-    shoppingCart.classList.toggle('active');
-};
-
 document.querySelector('.minus-btn').setAttribute("disabled", "disabled");
 
 let valueCount
@@ -142,102 +136,76 @@ document.querySelector(".minus-btn").addEventListener("click", function(){
     valueCount = document.getElementById("quantity").value;
     valueCount--;
     document.getElementById("quantity").value = valueCount;
-    if(valueCount ==0){
+    if(valueCount === 1){
         document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
     }
 });
 
-if(document.readyState == "loading"){
-    document.addEventListener('DOMContentLoaded', ready);
-} else {
-    ready();
+document.querySelector('#cart-btn').onclick = () =>{
+    shoppingCart.classList.toggle('active');
+};
+
+let itemTotalPrice = 0;
+let itemTotalQuantity = 0;
+
+const addToCartButton = document.querySelector('.shopping button');
+const shoppingCart = document.querySelector('.shopping-cart');
+const cartContent = document.querySelector('.shopping-cart .cart-content');
+const itemPrice = document.querySelector('h3.price');
+const itemImg = document.querySelector('#MainImg');
+const itemTitle = document.querySelector('h2.product-title');
+const itemQuantity = document.querySelector('#quantity');
+const checkoutButtonContainer = document.querySelector('.checkout-button-container');
+const checkoutButton = document.querySelector('button.checkout');
+
+checkoutButton.addEventListener('click', function(){
+    alert('Your order is placed');
+    emptyCart();
+});
+
+addToCartButton.addEventListener('click', function(){
+    const itemImgPath = itemImg.src;
+    const itemTitleText = itemTitle.textContent;
+    const price = parseFloat(itemPrice.innerHTML.split(' ')[0].substring(1)).toFixed(2);
+    itemTotalPrice += itemQuantity.value * price;
+    itemTotalQuantity += parseInt(itemQuantity.value);
+
+    cartContent.innerHTML = getCartItemHTML(itemImgPath, itemTitleText, price);
+    checkoutButtonContainer.style.display = "block";
+
+    const cartItemRemoveButton = document.querySelector('i.cart-item-remove-button');
+    cartItemRemoveButton.addEventListener('click', function(){
+        emptyCart();
+    });
+})
+
+function emptyCart(){
+    cartContent.innerHTML = `
+            <p class="cart-is-empty">
+                Your cart is empty
+            </p>
+        `;
+    checkoutButtonContainer.style.display = "none";
+    itemTotalPrice = 0;
+    itemTotalQuantity = 0;
 }
 
-function ready(){
-    const removeCartButtons = document.getElementsByClassName('remove-item')
-    for ( let i = 0; i < removeCartButtons.length; i++){
-        let button = removeCartButtons[i]
-        button.addEventListener("click", removeCartItem)
-    }
-    const quantityInputs = document.getElementsByClassName('cart-quantity')
-    for (let i = 0; i < quantityInputs.length; i++){
-        let input = quantityInputs[i];
-        input.addEventListener("change", quantityChanged);
-    }
-    const addCart = document.getElementsByClassName('shopping');
-    for (let i = 0; i < addCart.length; i++){
-        let button = addCart[i];
-        button.addEventListener("click", addCartClicked);
-    }
-    document.getElementsByClassName("btn checkout")[0].addEventListener("click", checkoutButtonClicked);
-}
-
-function checkoutButtonClicked(){
-    alert('Your Order is placed')
-    let cartContent = document.getElementsByClassName('cart-content')[0]
-    while(cartContent.hasChildNodes()){
-        cartContent.removeChild(cartContent.firstChild);
-    }
-}
-
-
-function removeCartItem(event) {
-    alert('Are you sure that you want to delete this Item?')
-    let buttonClicked = event.target;
-    buttonClicked.parentElement.remove();
-    updatetotal()
-}
-
-function quantityChanged(event){
-    let input = event.target;
-    if(isNaN(input.value) || input.value <= 0){
-        input.value = value;
-    }
-    updatetotal();
-}
-
-function addCartClicked(event) {
-    const title = products[0].title;
-    const price = products[0].price;
-    const productIMg = products[0].productIMg;
-    addProductToCart(title, price, productIMg);
-}
-
-function addProductToCart(productIMg, title, price,){
-    cartShopItem.classList.add('cart-item')
-    const cartItemsNames = cartItems.getElementsByClassName("cart-product-title")
-    for(let i = 0; i < cartItemsNames; i++){
-        return(productIMg, title, price)
-    }
-}
-
-const cartItemContent =`
-                        <img src="static/images/image-product-1-thumbnail.jpg" alt="Product 1">
-                        <div class="cart-product-title">Fall Limited Edition Sneakers</div>
-                        <div class="cart-price">$125.00</div>
-                        <h6>X</h6>
-                        <input type="number" value="1" class="cart-quantity">
-                        <div class="total-price">$125.00</div>
-                        <i class="fa-solid fa-trash-can remove-item"></i>
-                        <button class="btn checkout">Checkout</button>
-                    `;
-cartShopItem.innerHTML = cartItemContent;
-cartItems.append(cartShopItem);
-cartShopItem.getElementsByClassName("remove-item")[0].addEventListener("click", removeCartItem);
-cartShopItem.getElementsByClassName("cart-quantity")[0].addEventListener("change", quantityChanged);
-
-function updatetotal(productPrice){
-    const cartContent = document.getElementsByClassName('cart-content')[0];
-    const cartItems = cartContent.getElementsByClassName('cart-item');
-    let total = 0;
-    for (let i = 0; i < cartItems.length; i++){
-        let cartItem = cartItems[i];
-        let priceElement = cartItem.getElementsByClassName('price')[0];
-        let quantityElement = cartItem.getElementsByClassName('cart-quantity')[0];
-        let price = parseFloat(priceElement.innerText.replace("$",""));
-        let quantity = quantityElement.value;
-        total = total + (productPrice * quantity);
-    }
-        total = Math.round(total * 100) / 100;
-        document.getElementsByClassName("total-price")[0].innerText = "$" + total;
-}
+function getCartItemHTML(itemImgPath, itemTitle, itemInitialPrice){
+    return `
+        <div class="cart-shop-item">
+            <img src="${itemImgPath}" alt="${itemTitle}">
+            <div class="cart-item-title-prices">
+                <div class="cart-item-title">${itemTitle}</div>
+                <div class="cart-item-prices">
+                    <span class="cart-item-initial-price">$${itemInitialPrice}</span>
+                    <span>x</span>
+                    <span>${itemTotalQuantity}</span>
+                    <span class="cart-item-total-price">$${itemTotalPrice.toFixed(2)}</span>
+                </div>
+            </div>
+            <div class="cart-item-remove-button-container">
+                <i class="fa-solid fa-trash-can cart-item-remove-button"></i>
+            </div>
+        </div>
+    `
+};
