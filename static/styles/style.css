@@ -90,13 +90,31 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 30px;
 }
  
+#nav .shopping-cart-icon-container{
+    position: relative;
+}
+
+#nav .shopping-cart-count-items{
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    background-color: hsl(26, 100%, 55%);
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 6px;
+    color: #fff;
+    font-size: 12px;
+}
+
 #nav #cart-btn{
     line-height: 20px;
     color: grey;
-    font-size: 20px;
-    margin-right: 100px;
+    font-size: 25px;
 }
  
 #nav #cart-btn:hover{
